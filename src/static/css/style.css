@@ -1,0 +1,446 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto";
+    background: linear-gradient(to right ,#32034b, #9F38CF,#250633c2);
+}
+
+
+a {
+	display: inline-block;
+}
+
+.supercontainer {
+  margin-bottom: 30px;
+  margin-top: 90px;
+
+}
+
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+
+
+.capa {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to right, #cfaddf, #9F38CF);
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+/*Estilos para el encabezado*/
+.header {
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to right ,#250633, #9F38CF,#550a4fc2);
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+.container .btn-menu,
+.logo {
+  float: left;
+  line-height: 100px;
+}
+.container .btn-menu label {
+  color: rgb(225, 221, 230);
+  font-size: 25px;
+  cursor: pointer;
+}
+.logo h1 {
+  font-weight: 400;
+  font-size: 22px;
+  margin-left: 10px;
+}
+.container .menu {
+  float: right;
+  line-height: 100px;
+}
+.container .menu a {
+  display: inline-block;
+  padding: 15px;
+  line-height: normal;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  font-size: 15px;
+  margin-right: 5px;
+  font-family: "Playwrite DE Grund", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
+.card-body, .table.table-bordered {
+  background-color: #582955 !important;
+}
+.tabla {
+  background-color: #582955 !important;
+
+}
+
+/*Fin de Estilos para el encabezado*/
+
+/*Menù lateral*/
+#btn-menu {
+  display: none;
+}
+.container-menu {
+  position: absolute;
+  width: 100%;
+  height: 86vh;
+  top: 0;
+  left: 0;
+  transition: all 100ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+#btn-menu:checked ~ .container-menu {
+  opacity: 1;
+  visibility: visible;
+}
+.cont-menu {
+  width: 75%;
+  max-width: 250px;
+  border: 3px solid rgb(41, 2, 41);
+  border-radius: 15px;
+  height: 56vh;
+  position: fixed;
+  transition: all 500ms ease;
+  transform: translateX(-100%);
+  background: linear-gradient(to right ,#250633, #582955);
+  margin-top: 99px;
+}
+#btn-menu:checked ~ .container-menu .cont-menu {
+  transform: translateX(0%);
+}
+.cont-menu nav {
+  transform: translateY(15%);
+}
+
+
+.cont-menu nav a {
+  display: block;
+  text-decoration: none;
+  padding: 20px;
+  color: #faf8f9;
+  border-left: 5px solid transparent;
+  transition: all 400ms ease;
+  font-family: "Playwrite DE Grund", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+.cont-menu nav a:hover {
+  border-left: 5px solid #f506a5;
+  background: #df7ecf;
+}
+
+p {
+  font-family: "Playwrite DE Grund", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+.cont-menu label {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  color: #e06721;
+  cursor: pointer;
+  font-size: 18px;
+}
+/*Fin de Menù lateral*/
+
+header .logo
+{
+  width: 70px;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+header .container nav a
+{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  margin: 0 15px;
+}
+
+.container_login {
+    padding: 10px;
+    margin: 70px;
+
+}
+.option:hover {
+  background-color: #800080;
+}
+.form-control, .form-select {
+    background-color: #B56DD6;
+    border-radius: 2%;
+    color: #AD35D4;
+}
+
+footer {
+  background: linear-gradient(to top, #000000, #250633);
+    color: #800080;
+}
+
+footer.seccion {
+    color: rgb(255, 255, 255);
+    padding-bottom: 0;
+}
+
+footer .barra-footer {
+  background: linear-gradient(to top, #000000, #010002);
+    text-align: center;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+footer .logo-footer {
+    width: 80%;
+}
+
+footer p {
+  color: rgb(255, 255, 255);
+  margin-bottom: 30px;
+}
+
+footer a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+footer ul {
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer .redes {
+    font-size: 30px;
+    display: flex;
+}
+
+footer .redes a {
+    margin: 0 7.5px;
+}
+
+.seccion {
+    padding-top: 30px;
+    padding-bottom: 60px;
+}
+
+.columna-25 {
+    width: 25%;
+}
+
+
+.col {
+    margin: 10px;
+    padding: 10px;
+}
+
+.login {
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 20px;
+    width: -10%;
+    background-color: #250633;
+
+}
+
+.log {
+  background: linear-gradient(to left #250633);
+
+}
+
+h1 {
+    text-align: center;
+    padding: 40px;
+    font-family: "Lilita One", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #800080;
+}
+
+.form-group {
+    padding: 20px;
+    border-radius: none;
+}
+
+.boton-ingresar {
+    background-color: #f0bde0;
+    color: #250633;
+    font-family: "Lilita One", serif;
+    font-weight: 50;
+    font-style: normal;
+}
+
+.boton-ingresar:hover {
+    background-color: #d89ddd;
+}
+label {
+  font-family: "Playwrite DE Grund", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  color: #ffffff;
+
+}
+.boton2 {
+    text-align: center;
+    padding: 10px;
+}
+
+.form-control, .log, .form-select{
+  color: #ffffff;
+  border-radius: 15px;
+
+}
+
+option:hover {
+  background-color: #AD35D4;
+}
+
+
+
+input::placeholder {
+  color: rgb(255, 255, 255); /* Color azul con opacidad */
+}
+
+.imagen1,
+.fondo {
+    position: relative;
+    /* Relativa para permitir que los elementos internos se posicionen absolutamemente */
+    margin: 0 auto;
+    /* Centra horizontalmente el contenedor */
+}
+
+/* Imagen grande */
+.imagen-grande {
+    display: block;
+    /* Se asegura de que sea un bloque */
+    width: 120%;
+    /* Ajusta el ancho según sea necesario */
+    height: auto;
+    /* Mantiene las proporciones de la imagen */
+    transform: translate(-10%, -10%);
+    /* Ajusta el centro exacto */
+
+}
+
+.btn-close {
+  background-color: white;
+}
+
+/* Contenedor de la imagen pequeña */
+.medica {
+    position: absolute;
+    /* Absoluto para que se superponga a la imagen grande */
+    top: 50%;
+    /* Centrado verticalmente */
+    left: 50%;
+    /* Centrado horizontalmente */
+    transform: translate(-50%, -50%);
+    /* Ajusta el centro exacto */
+}
+
+/* Imagen pequeña */
+.imagen-pequena {
+    width: 20%;
+    /* Tamaño de la imagen pequeña como porcentaje de la grande */
+    height: auto;
+    /* Mantiene las proporciones de la imagen */
+}
+
+.mensaje {
+    background-color: #800080;
+    text-align: center;
+}
+
+.alert {
+    padding: 0;
+    margin-top: 10px;
+    color: white;
+}
+
+.menu-container {
+    text-align: center;
+    margin-bottom: 500px;
+    background-color: #f0bde0;
+}
+
+.menu-container h1 {
+    margin-bottom: 70px;
+}
+
+.menu-container .btn {
+    width: 200px;
+    margin-bottom: 20px;
+    position: fixed;
+}
+
+.boton {
+    background-color: #cc18b4d8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: "Playwrite DE Grund", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
+.btn-danger {
+  background-color: #d61750d8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: "Playwrite DE Grund", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
+.modal-content {
+  background-color: #431658;
+}
+
+.boton:hover {
+    background-color: #922db9;
+}
+
+
+
+

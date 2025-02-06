@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Menù Lateral con Css</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Playwrite+DE+Grund:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lilita+One&family=Playwrite+DE+Grund:wght@100..400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="btn-menu">
+          <label for="btn-menu">☰</label>
+        </div>
+        <div class="logo">
+          <img src="{{ url_for('static', filename='../../static/imagenes/logo_medico.png') }}" class="logo">
+        </div>
+        <nav class="menu">
+          <a href="#">
+            {% if session['logueado'] %}
+            <p>Rol: <strong>{{ session['rol'] }}</strong></p></a>
+            {% else %}
+            <p>No has iniciado sesión.</p>
+        {% endif %} 
+        <a href="/logout" class="btn-logout boton">Cerrar Sesión</a>
+        </nav>
+      </div>
+    </header>
+    <div class="capa"></div>
+    <!--	--------------->
+    <input type="checkbox" id="btn-menu" />
+    <div class="container-menu">
+      <div class="cont-menu">
+        <nav>
+            <a href="{{ url_for('pacientes') }}" > <i class="bi bi-file-person-fill"></i>   Pacientes</a>
+            <a href="{{ url_for('mostrarMedico') }}" > <i class="bi bi-person-vcard"></i>    Médico Oftalmológico</a>
+            <a href="{{ url_for('mostrarClinicas') }}" > <i class="bi bi-hospital"></i>   Clinicas</a>
+            <a href="{{ url_for('mostrarPeriodo') }}" > <i class="bi bi-calendar-date"></i>   Periodo</a>
+            <a href="{{ url_for('mostrarPrueba') }}" ><i class="bi bi-clipboard2-pulse"></i>   Prueba</a>
+            <a href="{{ url_for('mostrarTratamiento') }}" > <i class="bi bi-capsule"></i>   Tratamientos</a>
+        </nav>
+        <label for="btn-menu">✖️</label>
+      </div>
+    </div>
+  </body>
+</html>

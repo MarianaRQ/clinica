@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Gestión de periodos</title>
+</head>
+{% include 'header2.html' %}
+
+<body>
+    <div class="supercontainer">
+
+        <h1>Gestión de Periodos</h1>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary btn-sm boton" data-bs-toggle="modal" data-bs-target="#modal-add-periodo">
+                        Agregar Periodo
+                    </button>
+                </div><!-- div col 1-->
+                <div class="col-5">
+                </div><!-- div col 2-->
+                <div class="col">
+                    <form class="d-flex mb-3" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Buscar Periodo" aria-label="Search">
+                        <button class="btn btn-outline-success boton" type="submit">Buscar</button>
+                    </form>
+                </div><!-- div col 3-->
+            </div><!--fin div 2-->
+        </div> <!-- fin contenedor 1-->
+
+        &nbsp;
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th> Fecha de Inicio</th>
+                                <th> Fecha de Fin</th>
+                                <th> Medico</th>
+                                <th> Editar</th>
+                                <th> Eliminar</th>
+
+                            </tr>
+                        </thead><!--fin thead-->
+                        <tbody>
+                            {% for periodo in periodo %}
+                            <tr>
+                                <td>{{ periodo['Fecha_I'] }}</td>
+                                <td>{{ periodo['Fecha_F'] }}</td>
+                                <td>{{ periodo['Medico'] }}</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm boton" data-bs-toggle="modal"
+                                        data-bs-target="#modal-edit-{{ periodo.Fecha_I }}-{{ periodo.Fecha_F }}">
+                                        Editar
+                                    </button>
+                                </td>
+                                <td>
+                                    <a href="{{ url_for('delete_periodo', Fecha_I=periodo.Fecha_I, Fecha_F=periodo.Fecha_F) }}"
+                                        class="btn btn-danger btn-sm">
+                                        Eliminar
+                                    </a>
+                                </td>
+                            </tr>
+                            <!--Modal de edición-->
+                            <div class="modal fade" id="modal-edit-{{ periodo.Fecha_I }}-{{ periodo.Fecha_F }}"
+                                tabindex="-1"
+                                aria-labelledby="modalLabel-edit-{{ periodo.Fecha_I }}-{{ periodo.Fecha_F }}"
+                                aria-hidden="true">>
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5"
+                                                id="modalLabel-{{ periodo.Fecha_I }}-{{ periodo.Fecha_F }}">
+                                                Editar periodo: {{ periodo['Medico'] }}
+                                            </h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div><!--fin 4 duv modal editar-->
+                                        <div class="modal-body">
+                                            <form
+                                                action="{{ url_for('edit_periodo', Fecha_I=periodo['Fecha_I'], Fecha_F=periodo['Fecha_F']) }}"
+                                                method="POST">
+                                                <!-- Campos del formulario -->
+                                                <div class="mb-3">
+                                                    <label for="Fecha_I">Fecha de Inicio:</label>
+                                                    <input type="date" class="form-control" name="Fecha_I"
+                                                        value="{{ periodo['Fecha_I'] }}" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="Fecha_F">Fecha de Fin:</label>
+                                                    <input type="date" class="form-control" name="Fecha_F"
+                                                        value="{{ periodo['Fecha_F'] }}" required>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="medicooftamologico_NumColegiado"
+                                                        class="form-label">Médico Oftalmológico</label>
+                                                    <select name="Medico" class="form-control">
+                                                        {% for m in medico %}
+                                                        <option value="{{ m.NumColegiado }}" {% if
+                                                            periodo['NumColegiado']==m.NumColegiado %}selected{% endif
+                                                            %}>
+                                                            {{ m.Nombre }}
+                                                        </option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Cancelar</button>
+                                                    <button type="submit" class="btn btn-primary boton">Guardar
+                                                        cambios</button>
+                                                </div>
+                                            </form><!--fin form 1 editar-->
+                                        </div>
+                                    </div><!--fin 3 div modal editar-->
+                                </div><!--fin 2 div modal editar-->
+                            </div><!--fin 1 div modal editar-->
+                            {% endfor %}
+                        </tbody><!--fin tbody-->
+                    </table><!--fin table-->
+                    <!-- Modal para Agregar periodo -->
+                    <div class="modal fade" id="modal-add-periodo" tabindex="-1" aria-labelledby="modalAddPeriodoLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="modalAddPeriodoLabel">Agregar Periodos</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div><!--div 4-->
+                                <div class="modal-body">
+                                    <form action="{{ url_for('add_periodo') }}" method="post">
+                                        <div class="mb-3">
+                                            <label for="Fecha_I" class="col-form-label">Fecha de Inicio:</label>
+                                            <input type="date" class="form-control" name="Fecha_I" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="Fecha_F" class="col-form-label">Fecha de Fin:</label>
+                                            <input type="date" class="form-control" name="Fecha_F" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="NumColegiado" class="form-label">Médico
+                                                Oftalmológico:</label>
+                                            <select name="Medico" class="form-select">
+                                                {% for m in medico %}
+                                                <option value="{{ m.NumColegiado }}">{{ m.Nombre }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn btn-primary boton">Agregar Clínica</button>
+                                        </div>
+                                    </form><!--fin form-->
+                                </div><!--div 5-->
+                            </div><!--div 3-->
+                        </div><!--div 2-->
+                    </div><!--div 1-->
+
+
+
+                </div><!--fin card-body-->
+            </div><!--fin card-->
+        </div><!--fin container-->
+
+    </div>
+</body>
+{% include 'footer.html' %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>
