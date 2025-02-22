@@ -159,6 +159,8 @@ th, td {
   font-optical-sizing: auto;
   font-weight: weight;
   font-style: normal;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+
 }
 .cont-menu nav a:hover {
   border-left: 5px solid #f506a5;
