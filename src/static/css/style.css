@@ -134,7 +134,20 @@ a {
   transform: translateY(15%);
 }
 
+td {
+  background-color: #e6c7e3 !important;
+}
 
+th {
+  background-color: #f506a5 !important;
+  color: white !important;
+}
+
+th, td {
+  border: 2px solid #582955 !important; /* Borde sólido de 2px en negro */
+  padding: 8px;
+  text-align: left;
+}
 .cont-menu nav a {
   display: block;
   text-decoration: none;
@@ -191,15 +204,30 @@ header .container nav a
   background-color: #800080;
 }
 .form-control, .form-select {
-    background-color: #B56DD6;
+    background-color: #800080 !important;
     border-radius: 2%;
-    color: #AD35D4;
+    color: white !important;
 }
 
 footer {
   background: linear-gradient(to top, #000000, #250633);
     color: #800080;
 }
+input {
+  color: rgb(255, 255, 255) !important;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.445);
+  opacity: 1; /* Asegura que el color sea completamente visible */
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #c43ea2; /* Color del borde original */
+}
+
 
 footer.seccion {
     color: rgb(255, 255, 255);
