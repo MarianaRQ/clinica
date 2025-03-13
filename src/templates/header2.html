@@ -22,7 +22,7 @@
           <label for="btn-menu">☰</label>
         </div>
         <div class="logo">
-          <img src="{{ url_for('static', filename='../../static/imagenes/logo_medico.png') }}" class="logo">
+          <img src="{{ url_for('static', filename='../../static/imagenes/logo_medico.png') }}" href="index.html" class="logo">
         </div>
         <nav class="menu">
           <a href="#">
@@ -39,7 +39,7 @@
     <!--	--------------->
     <input type="checkbox" id="btn-menu" />
     <div class="container-menu">
-      <div class="cont-menu">
+      <div class="cont-menu sidebar">
         <nav>
             <a href="{{ url_for('pacientes') }}" > <i class="bi bi-file-person-fill"></i>   Pacientes</a>
             <a href="{{ url_for('mostrarMedico') }}" > <i class="bi bi-person-vcard"></i>    Médico Oftalmológico</a>

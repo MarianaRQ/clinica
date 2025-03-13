@@ -470,6 +470,75 @@ input::placeholder {
 .boton:hover {
     background-color: #922db9;
 }
+@media (max-width: 767px){
+footer 
+    {
+    	text-align: center;
+    }
+
+    footer .logo-footer
+    {
+    	width: 50%;
+    }
+
+    footer .redes
+    {
+    	justify-content: center;
+    }
+
+    .columna-mobile-100
+    {
+    	width: 100%;
+    }
+
+    .columna-mobile-50
+    {
+    	width: 50%;
+    }
+
+    .empujar-mobile-0
+    {
+    	margin-left: 0;
+    }
+
+    .sinpading-mobile
+    {
+    	padding: 0;
+    }
+
+    #inicio {
+        height: 100vh;
+        overflow: hidden; /* Evita que la sección desborde */
+    }
+
+    #inicio img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    #servicios .bloque-servicio
+    {
+    	margin-bottom: 15px;
+    }
+
+    #contactenos
+    {
+    	padding: 0;
+    }
+
+    #contactenos iframe
+    {
+    	position: relative;
+    	height: 50vh;
+
+    }
+
+}
+  
+  
+
 
 
 

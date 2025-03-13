@@ -52,7 +52,7 @@ def login():
                 session['logueado'] = True
                 session['idusuarios'] = account[0]
                 session['rol'] = 'Administrador' if account[3] == 1 else 'Usuario'
-                return render_template('pacientes.html')  # Página principal para usuarios autenticados
+                return render_template('index.html')  # Página principal para usuarios autenticados
             else:
                 flash("No tiene permiso para acceder a esta página.", "error")  # Mensaje de error para roles no permitidos
                 return redirect('/acceso-login')  # Redirigir a la página de login
